@@ -2,16 +2,16 @@
 
 /* Data for Earth */
 INSERT INTO planet (name, material, enemType)
-VALUES (Earth, Spin Metal, Hive);
+VALUES ("Earth", "Spin Metal", "Hive");
 
 /* Data for Moon */
 INSERT INTO planet (name, material, enemType)
-VALUES (Moon, Helium Fragments, Fallen);
+VALUES ("Moon", "Helium Fragments", "Fallen");
 
 /* Data for Venus */
 INSERT INTO planet (name, material, enemType)
-VALUES (Venus, Spirit Bloom , Vex);
+VALUES ("Venus", "Spirit Bloom" , "Vex");
 
 /* Data for Mars */
 INSERT INTO planet (name, material, enemType)
-VALUES (Mars, Relic Iron, Cabal);
+VALUES ("Mars", "Relic Iron", "Cabal");
