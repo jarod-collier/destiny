@@ -15,15 +15,67 @@ DROP TABLE planet CASCADE CONSTRAINTS;
 --
 -- Create the tables
 --
-CREATE TABLE employee (
-  fname     varchar2(15), 
-  minit     char,
-  lname     varchar2(15),
-  ssn       char(9) PRIMARY KEY,
-  bdate     date,
-  address   varchar2(30),
-  sex       char,
-  salary    number(10,2),
-  super_ssn char(9),
-  dno       number(4)
+CREATE TABLE player (
+  username  char(15) PRIMARY KEY, 
+  hp	    integer,
+  strength  integer,
+  speed		integer,
+  lvl	    integer,
+  strName	varchar2(20),
+  raidName	varchar2(20)
 );
+
+CREATE TABLE raid (
+  name		char(20) PRIMARY KEY,
+  dfclty	varchar2(20),
+  antgnst	varchar2(20),
+  obstacle	varchar2(20),
+  recLevel	integer,
+  charAmt	integer
+);
+
+CREATE TABLE raid_section (
+  name 		char(20) PRIMARY KEY,
+  section	char(20) PRIMARY KEY
+);
+
+CREATE TABLE quests (
+  Qname 	char(20) PRIMARY KEY,
+  Pname 	char(20) PRIMARY KEY,
+  objective	varchar2(20),
+  timer		integer,
+  username	varchar2(20)
+);
+
+CREATE TABLE found_on (
+  Pname 	char(20) PRIMARY KEY,
+  Qname 	char(20) PRIMARY KEY
+);
+
+CREATE TABLE strike (
+  name 		char(20) PRIMARY KEY,
+  boss		varchar2(20),
+  dfclty	varchar2(20),
+  pname		varchar2(20),
+  charAmt	integer
+);
+
+CREATE TABLE planet (
+  name 		char(20) PRIMARY KEY,
+  material 	varchar2(20),
+  enemType	varchar2(20),
+  enviro	varchar2(20)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
