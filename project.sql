@@ -31,6 +31,14 @@ CREATE TABLE player (
   lvl	    integer,
   strName	varchar2(20),
   raidName	varchar2(20)
+/*
+IC1: The player's strength and speed cannot sum to be greater than 100.
+*/ 
+CONSTRAINT IC1 CHECK ((strength + speed) < 101),
+/*
+IC2: The player's hp must not be positive.
+*/
+CONSTRAINT IC2 CHECK (hp >= 0)
 );
 CREATE TABLE raid (
   name		char(20) PRIMARY KEY,
@@ -69,7 +77,13 @@ CREATE TABLE planet (
   enviro	varchar2(20)
 );
 --
---
+-- Add the foreign keys:
+ALTER TABLE players
+ADD FOREIGN KEY (strName) references strike(name)
+Deferrable initially deferred;
+ALTER TABLE players
+ADD FOREIGN KEY (raidName) references raid(name)
+Deferrable initially deferred;
 SET FEEDBACK OFF
 -- < The INSERT statements that populate the tables>
 --
