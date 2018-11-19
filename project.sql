@@ -30,7 +30,7 @@ CREATE TABLE player (
   speed		integer,
   lvl	    integer,
   strName	varchar2(20),
-  raidName	varchar2(20)
+  raidName	varchar2(20),
 /*
 IC1: The player's strength and speed cannot sum to be greater than 100.
 */ 
