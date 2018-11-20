@@ -6,7 +6,7 @@ Jarod Collier
 Randy Nguyen
 Josef Hartsough
 Josh Weinmann
-Nick Shaheen
+Nick Sheehan
 */
 --< The SQL/DDL code that creates your schema >
 --In the DDL, every IC must have a unique name; e.g. IC5, IC10, IC15, etc.
