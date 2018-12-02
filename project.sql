@@ -144,21 +144,6 @@ INSERT INTO strike ('The Undying Mind', 'The Undying Mind', 'Normal', 'Mars', 3)
 INSERT INTO strike ('The Shadow Thief', 'Taniks Perfected', 'Normal', 'Moon', 3);
 INSERT INTO strike ('The Will of Crotia', 'Omnigul', 'Easy', 'Earth', 3);    
 -- 
---                           
-SET FEEDBACK ON
-COMMIT;
---
---
--- ONE QUERY PER TABLE TO PRINT OUT DATABASE
-SELECT * FROM players;
-SELECT * FROM raid;
-SELECT * FROM raid_section;
-SELECT * FROM quests;
-SELECT * FROM found_on;
-SELECT * FROM strike;
-SELECT * FROM planet;
---
---
 --
 -- Add the quests
 --
@@ -193,10 +178,20 @@ insert into found_on values ('Mars', 'Conquer the Day');
 insert into found_on values ('Mars', 'Lost and Found');
 --
 -- 
+
+SET FEEDBACK ON
+COMMIT;
 --
-
-
-
+--
+-- ONE QUERY PER TABLE TO PRINT OUT DATABASE
+SELECT * FROM players;
+SELECT * FROM raid;
+SELECT * FROM raid_section;
+SELECT * FROM quests;
+SELECT * FROM found_on;
+SELECT * FROM strike;
+SELECT * FROM planet;
+--
 -- < The SQL queries>. Include the following for each query:
 -- 1. A comment line stating the query number and the feature(s) it demonstrates
 -- (e.g. – Q25 – correlated subquery).
