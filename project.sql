@@ -128,21 +128,21 @@ insert into raid_section values ('Wratch of the Machine', 'Aksis Phase1');
 --
 -- Add the planets
 --
-INSERT INTO planet ('Earth', 'Spin Metal', 'Hive');
-INSERT INTO planet ('Moon', 'Helium Fragments', 'Fallen');
-INSERT INTO planet ('Venus', 'Spirit Bloom' , 'Vex');
-INSERT INTO planet ('Mars', 'Relic Iron', 'Cabal');
+INSERT INTO planet values ('Earth', 'Spin Metal', 'Hive');
+INSERT INTO planet values ('Moon', 'Helium Fragments', 'Fallen');
+INSERT INTO planet values ('Venus', 'Spirit Bloom' , 'Vex');
+INSERT INTO planet values ('Mars', 'Relic Iron', 'Cabal');
 --
 -- Add the strikes      
 --
-INSERT INTO strike ('The Abomination Heist', 'Hive Abomination', 'Normal', 'Moon', 3);
-INSERT INTO strike ('Fallen Saber', 'SABER 2', 'Easy', 'Earth', 3);
-INSERT INTO strike ('Dust Palace', 'Vatch', 'Normal', 'Mars', 3);
-INSERT INTO strike ('Echo Chamber', 'Theosyion', 'Hard', 'Venus', 3);
-INSERT INTO strike ('Winter\'s Run', 'Aksor', 'Hard', 'Venus', 3);
-INSERT INTO strike ('The Undying Mind', 'The Undying Mind', 'Normal', 'Mars', 3);
-INSERT INTO strike ('The Shadow Thief', 'Taniks Perfected', 'Normal', 'Moon', 3);
-INSERT INTO strike ('The Will of Crotia', 'Omnigul', 'Easy', 'Earth', 3);    
+INSERT INTO strike values ('The Abomination Heist', 'Hive Abomination', 'Normal', 'Moon', 3);
+INSERT INTO strike values ('Fallen Saber', 'SABER 2', 'Easy', 'Earth', 3);
+INSERT INTO strike values ('Dust Palace', 'Vatch', 'Normal', 'Mars', 3);
+INSERT INTO strike values ('Echo Chamber', 'Theosyion', 'Hard', 'Venus', 3);
+INSERT INTO strike values ('Winter\'s Run', 'Aksor', 'Hard', 'Venus', 3);
+INSERT INTO strike values ('The Undying Mind', 'The Undying Mind', 'Normal', 'Mars', 3);
+INSERT INTO strike values ('The Shadow Thief', 'Taniks Perfected', 'Normal', 'Moon', 3);
+INSERT INTO strike values ('The Will of Crotia', 'Omnigul', 'Easy', 'Earth', 3);    
 -- 
 --
 -- Add the quests
