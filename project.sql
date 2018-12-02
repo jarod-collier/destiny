@@ -171,6 +171,14 @@ SELECT * FROM planet;
 -- “Submit a final report” regarding which ICs to test).
 -- A comment line stating: Testing: < IC name>
 -- A SQL INSERT, DELETE, or UPDATE that will test the IC.
+-- Test IC1 that strength and speed is not greater than 100
+insert into player values ('Superman' , 1000, 1000, 1000, 40, NULL, NULL);
+-- Test IC2 that player's health cannot be negative
+insert into player values ('Corpse', -2, 1, 1, 3, NULL, NULL);
+-- Test primary key constraint for player table
+insert into planet values('Earth', 'Boss', 'Humans');
+-- Test foreign key constraint for strike name
+insert into player values ('Person' , 1, 10, 10, 4, 'str_name', NULL);
 
 COMMIT;
 --
