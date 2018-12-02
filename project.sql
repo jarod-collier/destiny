@@ -29,8 +29,8 @@ CREATE TABLE player (
   strength  integer,
   speed		integer,
   lvl	    integer,
-  strName	varchar2(20),
-  raidName	varchar2(20),
+  strName	varchar2(40),
+  raidName	varchar2(40),
 /*
 IC1: The player's strength and speed cannot sum to be greater than 100.
 */ 
@@ -41,40 +41,40 @@ IC2: The player's hp must not be positive.
 CONSTRAINT IC2 CHECK (hp >= 0)
 );
 CREATE TABLE raid (
-  name		char(20) PRIMARY KEY,
-  dfclty	varchar2(20),
-  antgnst	varchar2(20),
-  obstacle	varchar2(20),
+  name		char(40) PRIMARY KEY,
+  dfclty	varchar2(40),
+  antgnst	varchar2(40),
+  obstacle	varchar2(40),
   recLevel	integer,
   charAmt	integer
 );
 CREATE TABLE raid_section (
-  name 		char(20) PRIMARY KEY,
-  section	char(20) PRIMARY KEY
+  name 		char(40) PRIMARY KEY,
+  section	char(40) PRIMARY KEY
 );
 CREATE TABLE quests (
-  Qname 	char(20) PRIMARY KEY,
-  Pname 	char(20) PRIMARY KEY,
-  objective	varchar2(20),
+  Qname 	char(40) PRIMARY KEY,
+  Pname 	char(40) PRIMARY KEY,
+  objective	varchar2(40),
   timer		integer,
-  username	varchar2(20)
+  username	varchar2(40)
 );
 CREATE TABLE found_on (
-  Pname 	char(20) PRIMARY KEY,
-  Qname 	char(20) PRIMARY KEY
+  Pname 	char(40) PRIMARY KEY,
+  Qname 	char(40) PRIMARY KEY
 );
 CREATE TABLE strike (
-  name 		char(20) PRIMARY KEY,
-  boss		varchar2(20),
-  dfclty	varchar2(20),
-  pname		varchar2(20),
+  name 		char(40) PRIMARY KEY,
+  boss		varchar2(40),
+  dfclty	varchar2(40),
+  pname		varchar2(40),
   charAmt	integer
 );
 CREATE TABLE planet (
-  name 		char(20) PRIMARY KEY,
-  material 	varchar2(20),
-  enemType	varchar2(20),
-  enviro	varchar2(20)
+  name 		char(40) PRIMARY KEY,
+  material 	varchar2(40),
+  enemType	varchar2(40),
+  enviro	varchar2(40)
 );
 --
 -- Add the foreign keys:
