@@ -29,8 +29,8 @@ CREATE TABLE player (
   strength  integer,
   speed		integer,
   lvl	    integer,
-  strName	varchar2(20),
-  raidName	varchar2(20),
+  strName	varchar2(40),
+  raidName	varchar2(40),
 /*
 IC1: The player's strength and speed cannot sum to be greater than 100.
 */ 
@@ -41,40 +41,40 @@ IC2: The player's hp must not be positive.
 CONSTRAINT IC2 CHECK (hp >= 0)
 );
 CREATE TABLE raid (
-  name		char(20) PRIMARY KEY,
-  dfclty	varchar2(20),
-  antgnst	varchar2(20),
-  obstacle	varchar2(20),
+  name		char(40) PRIMARY KEY,
+  dfclty	varchar2(40),
+  antgnst	varchar2(40),
+  obstacle	varchar2(40),
   recLevel	integer,
   charAmt	integer
 );
 CREATE TABLE raid_section (
-  name 		char(20) PRIMARY KEY,
-  section	char(20) PRIMARY KEY
+  name 		char(40) PRIMARY KEY,
+  section	char(40) PRIMARY KEY
 );
 CREATE TABLE quests (
-  Qname 	char(20) PRIMARY KEY,
-  Pname 	char(20) PRIMARY KEY,
-  objective	varchar2(20),
+  Qname 	char(40) PRIMARY KEY,
+  Pname 	char(40) PRIMARY KEY,
+  objective	varchar2(40),
   timer		integer,
-  username	varchar2(20)
+  username	varchar2(40)
 );
 CREATE TABLE found_on (
-  Pname 	char(20) PRIMARY KEY,
-  Qname 	char(20) PRIMARY KEY
+  Pname 	char(40) PRIMARY KEY,
+  Qname 	char(40) PRIMARY KEY
 );
 CREATE TABLE strike (
-  name 		char(20) PRIMARY KEY,
-  boss		varchar2(20),
-  dfclty	varchar2(20),
-  pname		varchar2(20),
+  name 		char(40) PRIMARY KEY,
+  boss		varchar2(40),
+  dfclty	varchar2(40),
+  pname		varchar2(40),
   charAmt	integer
 );
 CREATE TABLE planet (
-  name 		char(20) PRIMARY KEY,
-  material 	varchar2(20),
-  enemType	varchar2(20),
-  enviro	varchar2(20)
+  name 		char(40) PRIMARY KEY,
+  material 	varchar2(40),
+  enemType	varchar2(40),
+  enviro	varchar2(40)
 );
 --
 -- Add the foreign keys:
@@ -128,23 +128,57 @@ insert into raid_section values ('Wratch of the Machine', 'Aksis Phase1');
 --
 -- Add the planets
 --
-INSERT INTO planet ('Earth', 'Spin Metal', 'Hive');
-INSERT INTO planet ('Moon', 'Helium Fragments', 'Fallen');
-INSERT INTO planet ('Venus', 'Spirit Bloom' , 'Vex');
-INSERT INTO planet ('Mars', 'Relic Iron', 'Cabal');
+INSERT INTO planet values ('Earth', 'Spin Metal', 'Hive');
+INSERT INTO planet values ('Moon', 'Helium Fragments', 'Fallen');
+INSERT INTO planet values ('Venus', 'Spirit Bloom' , 'Vex');
+INSERT INTO planet values ('Mars', 'Relic Iron', 'Cabal');
 --
 -- Add the strikes      
 --
-INSERT INTO strike ('The Abomination Heist', 'Hive Abomination', 'Normal', 'Moon', 3);
-INSERT INTO strike ('Fallen Saber', 'SABER 2', 'Easy', 'Earth', 3);
-INSERT INTO strike ('Dust Palace', 'Vatch', 'Normal', 'Mars', 3);
-INSERT INTO strike ('Echo Chamber', 'Theosyion', 'Hard', 'Venus', 3);
-INSERT INTO strike ('Winter\'s Run', 'Aksor', 'Hard', 'Venus', 3);
-INSERT INTO strike ('The Undying Mind', 'The Undying Mind', 'Normal', 'Mars', 3);
-INSERT INTO strike ('The Shadow Thief', 'Taniks Perfected', 'Normal', 'Moon', 3);
-INSERT INTO strike ('The Will of Crotia', 'Omnigul', 'Easy', 'Earth', 3);    
+INSERT INTO strike values ('The Abomination Heist', 'Hive Abomination', 'Normal', 'Moon', 3);
+INSERT INTO strike values ('Fallen Saber', 'SABER 2', 'Easy', 'Earth', 3);
+INSERT INTO strike values ('Dust Palace', 'Vatch', 'Normal', 'Mars', 3);
+INSERT INTO strike values ('Echo Chamber', 'Theosyion', 'Hard', 'Venus', 3);
+INSERT INTO strike values ('Winter\'s Run', 'Aksor', 'Hard', 'Venus', 3);
+INSERT INTO strike values ('The Undying Mind', 'The Undying Mind', 'Normal', 'Mars', 3);
+INSERT INTO strike values ('The Shadow Thief', 'Taniks Perfected', 'Normal', 'Moon', 3);
+INSERT INTO strike values ('The Will of Crotia', 'Omnigul', 'Easy', 'Earth', 3);    
 -- 
---                           
+--
+-- Add the quests
+--
+
+insert into quests values ('Bounty Hunter', 'Earth', 'Eliminate Target',	'25',	'Farmer');
+insert into quests values ('Patrols 101', 'Earth', 'Patrol',	'15',	'Farmer');
+insert into quests values ('The mountaintop', 'Earth', 'Eliminate enemies',	'10',	'Butcher');
+insert into quests values ('High-Value Targets', 'Earth', 'Eliminate Target',	'20',	'Pawn');
+insert into quests values ('A Cry for Help', 'Moon', 'Defend Objective',	'10',	'Rook');
+insert into quests values ('Retaliation', 'Moon', 'Attack objective',	'25',	'King');
+insert into quests values ('Neverending Battle', 'Venus', 'Eliminate enemies',	'30',	'Ruler');
+insert into quests values ('Back in the Saddle', 'Venus', 'Attack objective',	'20',	'Bishop');
+insert into quests values ('Flameforged', 'Venus', 'Eliminate Target',	'20',	'Knight');
+insert into quests values ('Successor to the Throne', 'Mars', 'Defend Objective', '25',	'Queen');
+insert into quests values ('Conquer the Day', 'Mars', 'Eliminate enemies',	'35',	'Lancer');
+insert into quests values ('Lost and Found', 'Mars', 'Collect Items',	'15',	'Archer');
+
+--
+-- Add the found_on
+--
+insert into found_on values ('Earth', 'Patrols 101');
+insert into found_on values ('Earth', 'Bounty Hunter');
+insert into found_on values ('Earth', 'The mountaintop');
+insert into found_on values ('Earth', 'High-Value Targets');
+insert into found_on values ('Moon', 'A Cry for Help');
+insert into found_on values ('Moon', 'Retaliation');
+insert into found_on values ('Venus', 'Back in the Saddle');
+insert into found_on values ('Venus', 'Neverending Battle');
+insert into found_on values ('Venus', 'Flameforged');
+insert into found_on values ('Mars', 'Successor to the Throne');
+insert into found_on values ('Mars', 'Conquer the Day');
+insert into found_on values ('Mars', 'Lost and Found');
+--
+-- 
+
 SET FEEDBACK ON
 COMMIT;
 --
@@ -158,7 +192,6 @@ SELECT * FROM found_on;
 SELECT * FROM strike;
 SELECT * FROM planet;
 --
---
 -- < The SQL queries>. Include the following for each query:
 -- 1. A comment line stating the query number and the feature(s) it demonstrates
 -- (e.g. – Q25 – correlated subquery).
@@ -171,6 +204,14 @@ SELECT * FROM planet;
 -- “Submit a final report” regarding which ICs to test).
 -- A comment line stating: Testing: < IC name>
 -- A SQL INSERT, DELETE, or UPDATE that will test the IC.
+-- Test IC1 that strength and speed is not greater than 100
+insert into player values ('Superman' , 1000, 1000, 1000, 40, NULL, NULL);
+-- Test IC2 that player's health cannot be negative
+insert into player values ('Corpse', -2, 1, 1, 3, NULL, NULL);
+-- Test primary key constraint for player table
+insert into planet values('Earth', 'Boss', 'Humans');
+-- Test foreign key constraint for strike name
+insert into player values ('Person' , 1, 10, 10, 4, 'str_name', NULL);
 
 COMMIT;
 --
