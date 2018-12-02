@@ -25,55 +25,55 @@ DROP TABLE strike CASCADE CONSTRAINTS;
 DROP TABLE planet CASCADE CONSTRAINTS;
 
 CREATE TABLE planet (
-  name 		char(40) PRIMARY KEY,
-  material 	varchar2(40),
-  enemType	varchar2(40)
+  name 		char(10) PRIMARY KEY,
+  material 	varchar2(20),
+  enemType	varchar2(10)
 );
 CREATE TABLE raid (
-  name		char(40) PRIMARY KEY,
-  dfclty	varchar2(40),
-  antgnst	varchar2(40),
-  sect	varchar2(40),
+  name		char(25) PRIMARY KEY,
+  dfclty	varchar2(10),
+  antgnst	varchar2(10),
+  sect	varchar2(18),
   recLevel	integer,
-  Pname char(40),
+  Pname char(10),
   charAmt	integer,
   CONSTRAINT fk_raidToPlanet FOREIGN KEY (Pname) REFERENCES planet(name)
 );
 CREATE TABLE raid_obstacle (
-  name 		char(40),
-  obstacle	varchar2(40),
+  name 		char(25),
+  obstacle	varchar2(25),
   CONSTRAINT fk_obstacleToRaid FOREIGN KEY (name) REFERENCES raid(name),
   PRIMARY KEY (name, obstacle)
 );
 CREATE TABLE quests (
-  Qname 	char(40),
-  Pname 	char(40),
-  objective	varchar2(40),
+  Qname 	char(25),
+  Pname 	char(10),
+  objective	varchar2(20),
   timer		integer,
   CONSTRAINT fk_questsToPlanet FOREIGN KEY (Pname) REFERENCES planet(name),
   PRIMARY KEY (Qname, Pname)
 );
 CREATE TABLE accepts (
-  username	char(40),
-  Pname 	char(40),
-  Qname 	char(40),
+  username	char(10),
+  Pname 	char(10),
+  Qname 	char(25),
   PRIMARY KEY (username, Pname, Qname)
 );
 CREATE TABLE strike (
-  name 		char(40) PRIMARY KEY,
-  boss		varchar2(40),
-  dfclty	varchar2(40),
-  pname		varchar2(40),
+  name 		char(25) PRIMARY KEY,
+  boss		varchar2(25),
+  dfclty	varchar2(10),
+  pname		varchar2(10),
   charAmt	integer
 );
 CREATE TABLE player (
-  username  char(15) PRIMARY KEY, 
+  username  char(10) PRIMARY KEY, 
   hp	    integer,
   strength  integer,
   speed		integer,
   lvl	    integer,
-  strName	char (40),
-  raidName	char(40),
+  strName	char (25),
+  raidName	char(25),
   CONSTRAINT player_strike FOREIGN KEY (strName) REFERENCES strike(name),
   CONSTRAINT player_raid FOREIGN KEY (raidName) REFERENCES raid(name),
 /*
@@ -182,10 +182,12 @@ insert into player values ('Queen', 200, 50, 50, 40, NULL, 'Crota''s End');
 insert into player values ('King', 200, 90, 10, 40, NULL, 'Crota''s End');
 
 SET FEEDBACK ON
+SET LINESIZE 32000
 COMMIT;
 --
 --
 -- ONE QUERY PER TABLE TO PRINT OUT DATABASE
+
 SELECT * FROM player;
 SELECT * FROM raid;
 SELECT * FROM raid_obstacle;
